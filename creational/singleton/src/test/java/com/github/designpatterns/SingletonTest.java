@@ -21,7 +21,7 @@ class SingletonTest {
 
     @BeforeAll
     static void beforeAll() {
-       clazz = Singleton.class;
+        clazz = Singleton.class;
     }
 
     @Test
