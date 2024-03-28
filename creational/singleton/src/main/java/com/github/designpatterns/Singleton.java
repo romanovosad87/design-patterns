@@ -14,19 +14,5 @@ package com.github.designpatterns;
  * Provide a public static method that returns the instance of the Singleton class.
  */
 public class Singleton {
-    // Private static instance variable to hold the single instance of the class
-    private static Singleton instance;
 
-    // Private constructor to prevent instantiation from outside the class
-    private Singleton() {
-    }
-
-    // Public static method to return the singleton instance
-    public static Singleton getInstance() {
-        if (instance == null) {
-            instance = new Singleton();
-        }
-        return instance;
-
-    }
 }
