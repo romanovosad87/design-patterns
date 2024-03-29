@@ -1,9 +1,13 @@
 package com.github.designpatterns;
 
 public class Client {
-    // Create leaf shapes
+    public static void main(String[] args) {
 
-    // Create composite shape
+        // Create leaf shapes
 
-    // Draw composite shape
+        // Create composite shape
+
+        // Draw composite shape
+
+    }
 }

@@ -44,7 +44,7 @@ class CompositeTest {
 
     @Test
     @Order(2)
-    @DisplayName("should have a field some implementation of Collection interface")
+    @DisplayName("should have a field of some Collection interface in Drawing class")
     void shouldHaveCollectionFieldInDrawingClass() {
         var drawingClass = getDrawingClass();
         Field[] fields = drawingClass.getDeclaredFields();
