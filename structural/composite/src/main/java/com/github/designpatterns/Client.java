@@ -1,5 +1,8 @@
 package com.github.designpatterns;
 
+/**
+ * Implement solution according to description in README.md file
+ */
 public class Client {
     public static void main(String[] args) {
 
