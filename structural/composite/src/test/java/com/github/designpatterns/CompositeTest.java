@@ -2,6 +2,7 @@ package com.github.designpatterns;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
@@ -11,6 +12,8 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.reflections.Reflections;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -20,6 +23,13 @@ import java.util.Set;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class CompositeTest {
 
+    public static final String DRAWING = "Drawing";
+    public static final String DRAW = "draw";
+    public static final String ADD_SHAPE = "addShape";
+    public static final String REMOVE_SHAPE = "removeShape";
+    public static final String SHAPE = "Shape";
+    public static final String CIRCLE = "Circle";
+    public static final String SQUARE = "Square";
     private static Reflections reflections;
 
     @BeforeAll
@@ -39,18 +49,26 @@ class CompositeTest {
                 .map(Class::getSimpleName)
                 .toList();
 
-        assertThat(className).contains("Circle", "Square", "Drawing");
+        assertThat(className).contains(CIRCLE, SQUARE, DRAWING);
     }
 
     @Test
     @Order(2)
-    @DisplayName("should have a field some implementation of Collection interface")
+    @SneakyThrows
+    @DisplayName("should have a field of some Collection interface in Drawing class")
     void shouldHaveCollectionFieldInDrawingClass() {
         var drawingClass = getDrawingClass();
         Field[] fields = drawingClass.getDeclaredFields();
         var collectionField = getCollectionField(fields);
+        var parameterizedType = (ParameterizedType)collectionField
+                .map(Field::getGenericType)
+                .orElseThrow();
+
+        Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
+        var typeName = actualTypeArguments[0].getTypeName();
 
         assertThat(collectionField).isNotEmpty();
+        assertThat(typeName).endsWith(SHAPE);
     }
 
     @Test
@@ -64,7 +82,7 @@ class CompositeTest {
                 .map(Method::getName)
                 .toList();
 
-        assertThat(methodNames).contains("addShape", "removeShape");
+        assertThat(methodNames).contains(ADD_SHAPE, REMOVE_SHAPE);
     }
 
     @Test
@@ -75,7 +93,7 @@ class CompositeTest {
 
         Method[] methods = drawingClass.getDeclaredMethods();
         var drawMethod = Arrays.stream(methods)
-                .filter(method -> method.getName().equals("draw"))
+                .filter(method -> method.getName().equals(DRAW))
                 .findFirst();
 
         assertThat(drawMethod).isNotEmpty();
@@ -87,7 +105,7 @@ class CompositeTest {
         Set<Class<? extends Shape>> subTypesOfShape = reflections.getSubTypesOf(Shape.class);
 
         return subTypesOfShape.stream()
-                .filter(clazz -> clazz.getSimpleName().equals("Drawing"))
+                .filter(clazz -> clazz.getSimpleName().equals(DRAWING))
                 .findFirst()
                 .orElseThrow();
     }

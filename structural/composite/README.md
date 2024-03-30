@@ -1,7 +1,12 @@
 ## Composite 
 
 The Composite pattern is a structural design pattern that allows you to compose objects into **tree-like structures** to represent part-whole hierarchies.
-It enables clients to treat individual objects and compositions of objects uniformly.
+
+**Problem**
+
+How to represent part-whole hierarchies in a way that allows clients to treat individual objects and compositions of objects uniformly ?
+
+![img_1.png](img_1.png)
 
 Design and implement a Java class structure that demonstrates the Composite pattern. 
 Your implementation should include the following components:
