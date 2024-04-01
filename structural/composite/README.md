@@ -18,7 +18,12 @@ Your implementation should include the following components:
 
 ![img.png](img.png)
 
-- [Composite Design Pattern](https://refactoring.guru/design-patterns/composite)
+**Use cases:**
+- **File System:** In Java's File I/O API, directories and files are represented as a hierarchical structure. Directories can contain other directories and files. 
+The Composite pattern is used to represent this structure, allowing clients to treat both individual files and directories uniformly.
+
+
+[Composite Design Pattern](https://refactoring.guru/design-patterns/composite)
 
 
 
