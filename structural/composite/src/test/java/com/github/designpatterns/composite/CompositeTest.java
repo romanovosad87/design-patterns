@@ -1,4 +1,4 @@
-package com.github.designpatterns;
+package com.github.designpatterns.composite;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -30,11 +30,12 @@ class CompositeTest {
     public static final String SHAPE = "Shape";
     public static final String CIRCLE = "Circle";
     public static final String SQUARE = "Square";
+    public static final String PACKAGE_NAME = "com.github.designpatterns.composite";
     private static Reflections reflections;
 
     @BeforeAll
     static void beforeAll() {
-        reflections = new Reflections("com.github.designpatterns");
+        reflections = new Reflections(PACKAGE_NAME);
     }
 
     @Test

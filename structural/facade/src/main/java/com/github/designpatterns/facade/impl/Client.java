@@ -1,4 +1,4 @@
-package com.github.designpatterns;
+package com.github.designpatterns.facade.impl;
 
 /**
  * Implement solution according to description in README.md file

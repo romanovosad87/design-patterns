@@ -1,4 +1,4 @@
-package com.github.designpatterns;
+package com.github.designpatterns.composite;
 
 /**
  * Implement solution according to description in README.md file

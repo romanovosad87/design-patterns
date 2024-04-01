@@ -1,4 +1,4 @@
-package com.github.designpatterns;
+package com.github.designpatterns.singleton;
 
 /**
  * Task Details:
