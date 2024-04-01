@@ -1,4 +1,4 @@
-package com.github.designpatterns.facade;
+package com.github.designpatterns.proxy;
 
 import lombok.experimental.UtilityClass;
 import java.io.BufferedReader;
@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 
 @UtilityClass
 public class TestUtil {
-
     public static final String CLASS = ".class";
     public static final String DOT = ".";
     public static final String REGEX = "[.]";
