@@ -50,7 +50,7 @@ class ProxyTest {
                 .filter(OrderService.class::isAssignableFrom)
                 .count();
 
-        assertThat(numberOfClasses).isGreaterThanOrEqualTo(numberOfClasses);
+        assertThat(numberOfClasses).isGreaterThanOrEqualTo(2);
     }
 
     @Test
